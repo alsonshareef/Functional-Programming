@@ -81,4 +81,8 @@ Principles that describe Functional Programming
         // console.log(add3to(2)) // add3to remembers x = 3, and the 2 will = y
     
     
-
+/*
+-- Habits to gain to start writing more functional code --
+    - Instead of iterating with loops, use higher-order functions such as map, reduce, filter.
+    - Stay away from mutating data (common when working with objects).
+*/
