@@ -68,7 +68,7 @@ Principles that describe Functional Programming
         - Can be passed as an argument into another function
         - Can be a return value of a function
     
-    These functions utilize 'Closure' to encapsulate state and create more modular function-based code.
+    These functions utilize 'Closure' to encapsulate state and create more modular function-based code. A closure is a nested function which can access its lexical scope even when it’s called outside of it.
 */
 
     // FCF Example:
@@ -79,8 +79,23 @@ Principles that describe Functional Programming
         let add3to = createAdder(3) // state of x = 3 is encapsulated into add3to
 
         // console.log(add3to(2)) // add3to remembers x = 3, and the 2 will = y
-    
-    
+
+/*
+-- Partial Application --
+    This piggy-backs off of the first-class function concept as it is an approach to programming with first-class functions as the basis for the code that's written. This is synonymously mentioned alongside the technique known as "Currying" which is basically the construction of functions that have more than one argument, with a series of smaller functions that take one argument. These one argument functions usually are responsible for one of the arguments in the multi-argument function that you are trying to construct.
+*/
+
+    // The non-curried version takes all arguments it needs and returns the result
+    const add = (x, y) => x + y;
+    add(2, 3) // 5
+
+    // The curried function takes the arguments one by one and executes when it
+    // has received the last one. Each invocation before that will result in a new
+    // function being returned which will take the next argument from the chain.
+    const addCurried = x => y => x + y;
+    const addTwo = addCurried(2) // function
+    const result = addTwo(3) // 5
+
 /*
 -- Habits to gain to start writing more functional code --
     - Instead of iterating with loops, use higher-order functions such as map, reduce, filter.
